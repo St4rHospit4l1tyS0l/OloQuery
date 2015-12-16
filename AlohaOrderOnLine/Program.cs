@@ -17,7 +17,7 @@ namespace AlohaOrderOnLine
             //GetExternalResponse("https://cloudconnect.radianthosting.net/");
             //GetExternalResponse("https://cloudconnect.radianthosting.net/scpp/v1/");
 
-            GetExternalResponse("https://cloudconnect.radianthosting.net/aoopreprod/v1/");
+            GetExternalResponse("https://cloudconnect.radianthosting.net/aoopreprod/v1/sites/1");
             //GetExternalResponse2("https://cloudconnect.radianthosting.net/");
             //GetExternalResponse2("https://cloudconnect.radianthosting.net/scpp/v1/");
 
@@ -65,12 +65,19 @@ namespace AlohaOrderOnLine
             .Accept
             .Add(new MediaTypeWithQualityHeaderValue("application/json"));
             client.DefaultRequestHeaders.Add("X-Api-CompanyCode", "PHSP001");
-            client.DefaultRequestHeaders.Add("Authorization", "Basic bWZ0K0V5c1o0Ry9YTG43Y2hvOXhaMVhGSw==");
-            
-            HttpContent content = new StringContent("{\"User\": \"XRomeroLabServiceUser\", \"Password\": \"d!az93SW1\"}",
+            /*
+            HttpContent content = new StringContent("{\"Email\": \"XRomeroLabServiceUser\", \"Password\": \"d!az93SW1\"}",
                                     Encoding.UTF8,
                                     "application/json");
+            */
+            var byteArray = Encoding.ASCII.GetBytes("XRomeroLabServiceUser:d!az93SW1");
+            var value = Convert.ToBase64String(byteArray);
+            //var header = new AuthenticationHeaderValue(
+            //           "Basic", value);
+            //client.DefaultRequestHeaders.Authorization = header;
 
+            client.DefaultRequestHeaders.Add("Authorization", "Basic " + value);
+            
             var respuesta = client.GetAsync(uri).Result;
             var result = respuesta.Content.ReadAsStringAsync().Result;
             Console.WriteLine(result);
