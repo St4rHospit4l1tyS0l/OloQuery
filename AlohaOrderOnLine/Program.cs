@@ -1,94 +1,47 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
+using System.Security.Policy;
+using AlohaOrderOnLine.Infrastructure;
 using AlohaOrderOnLine.Service;
 
 namespace AlohaOrderOnLine
 {
     class Program
     {
-        static void Main(string[] args)
+        
+        static void Main()
         {
-            
-            //ExecPostMethods();
-            //ExecGetMethods();
-            ExecPutMethods();
+            //string userGuid = AuthenticateUser();
+            //Console.WriteLine(userGuid);
+            Console.WriteLine(GetCustomerInfo("1"));
 
+            //Console.WriteLine(GetSiteInfo());
+            //Console.WriteLine(CreateCustomer());
+            Console.ReadLine();
         }
 
-        private static void ExecPutMethods()
+        private static string GetSiteInfo()
         {
-            var putmethods = new PutMethod();
-            putmethods.PutCreateCustomer("https://cloudconnect.radianthosting.net/aoopreprod/v1/Customers/");
+            var sites = new Sites();
+            return sites.GetSitesInfo(Constants.URI,"1");
         }
 
-        private static void ExecGetMethods()
+        private static string GetCustomerInfo(string userGuid)
         {
-            //GetExternalResponse("https://cloudconnect.radianthosting.net/aoopreprod/v1/sites/1");
-            //GetExternalResponse("https://cloudconnect.radianthosting.net/aoopreprod/v1/Menus/1/1000");
-            GetExternalResponse("https://cloudconnect.radianthosting.net/aoopreprod/v1/sites/1");
-            // GetExternalResponse("https://cloudconnect.radianthosting.net/aoopreprod/v1/Menus/1/1");
-            //GetExternalResponse("https://cloudconnect.radianthosting.net/aoopreprod/v1/Instructions");
+            var getUserInfo = new GetUserInfo();
+            return getUserInfo.GetCustomerInfo(Constants.URI, userGuid);
         }
 
-        private static void ExecPostMethods()
+        public static string AuthenticateUser()
         {
-            PostExternalResponse("https://cloudconnect.radianthosting.net/aoopreprod/v1/");
+            var authenticateUser = new Authenticate();
+            return authenticateUser.AuthenticateUser(Constants.URI, "rolando.starpms@hotmail.com", "+2c;s^i#$TJTDR");
+                // "sales@starpms.com", "=7Q7BYbZ0cwh5h");
         }
 
-        public static string PostExternalResponse(String uri)
+        public static string CreateCustomer()
         {
-            var client = new HttpClient();
-            client.DefaultRequestHeaders
-            .Accept
-            .Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            client.DefaultRequestHeaders.Add("X-Api-CompanyCode", "PHSP001");
-
-            //client.DefaultRequestHeaders.Add("Authorization", "Basic YXBpQGFvbC5uY3IuY29tOnBhc3N3b3Jk");
-            HttpContent content = new StringContent("{}",            
-                                    Encoding.UTF8,
-                                    "application/json");
-
-            var byteArray = Encoding.ASCII.GetBytes("XRomeroLabServiceUser:d!az93SW1");
-            var value = Convert.ToBase64String(byteArray);
-            client.DefaultRequestHeaders.Add("Authorization", "Basic " + value);
-
-            var response = client.PostAsync(uri, content).Result;
-            var result = response.Content.ReadAsStringAsync().Result;
-            Console.WriteLine(result);
-            return result;
-            //var request = client.PostAsync(uri, content).Result;
-            //var result = request.Content.ReadAsStringAsync().Result;
-            //return result;
-        }
-
-        public static string GetExternalResponse(String uri)
-        {
-            var client = new HttpClient();
-            client.DefaultRequestHeaders
-            .Accept
-            .Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            client.DefaultRequestHeaders.Add("X-Api-CompanyCode", "PHSP001");
-            /*
-            HttpContent content = new StringContent("{\"Email\": \"XRomeroLabServiceUser\", \"Password\": \"d!az93SW1\"}",
-                                    Encoding.UTF8,
-                                    "application/json");
-            */
-            var byteArray = Encoding.ASCII.GetBytes("XRomeroLabServiceUser:d!az93SW1");
-            var value = Convert.ToBase64String(byteArray);
-            //var header = new AuthenticationHeaderValue(
-            //           "Basic", value);
-            //client.DefaultRequestHeaders.Authorization = header;
-            client.DefaultRequestHeaders.Add("Authorization", "Basic " + value);
-            
-            var respuesta = client.GetAsync(uri).Result;
-            var result = respuesta.Content.ReadAsStringAsync().Result;
-            Console.WriteLine(result);
-            return result;
+            var createCustomer = new Customers();
+            return createCustomer.CreateCustomer(Constants.URI);
         }
     }
 }

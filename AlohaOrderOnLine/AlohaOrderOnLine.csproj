@@ -47,18 +47,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Infrastructure\Constants.cs" />
+    <Compile Include="Infrastructure\GetMethod.cs" />
+    <Compile Include="Model\HoursModel.cs" />
+    <Compile Include="Model\TimeSpanModel.cs" />
+    <Compile Include="Model\SiteAttributesModel.cs" />
+    <Compile Include="Model\SiteMenusModel.cs" />
+    <Compile Include="Model\SiteModel.cs" />
+    <Compile Include="Model\SiteSettingsModel.cs" />
+    <Compile Include="Model\SpecialEventsModel.cs" />
+    <Compile Include="Service\GetUserInfo.cs" />
+    <Compile Include="Infrastructure\PostMethod.cs" />
+    <Compile Include="Infrastructure\PutMethod.cs" />
     <Compile Include="Model\AddressesModel.cs" />
+    <Compile Include="Model\AuthenticateModel.cs" />
     <Compile Include="Model\CustomerModel.cs" />
     <Compile Include="Model\ExtraDataModel.cs" />
     <Compile Include="Model\RegistrationModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\PutMethod.cs" />
+    <Compile Include="Service\Authenticate.cs" />
+    <Compile Include="Service\Customers.cs" />
+    <Compile Include="Service\Sites.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
