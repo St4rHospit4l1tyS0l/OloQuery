@@ -12,10 +12,10 @@ namespace AlohaOrderOnLine
         {
             //string userGuid = AuthenticateUser();
             //Console.WriteLine(userGuid);
-            Console.WriteLine(GetCustomerInfo("1"));
+            //Console.WriteLine(GetCustomerInfo("1"));
 
             //Console.WriteLine(GetSiteInfo());
-            //Console.WriteLine(CreateCustomer());
+            Console.WriteLine(CreateCustomer());
             Console.ReadLine();
         }
 
@@ -42,6 +42,12 @@ namespace AlohaOrderOnLine
         {
             var createCustomer = new Customers();
             return createCustomer.CreateCustomer(Constants.URI);
+        }
+
+        public static string CreateOrder()
+        {
+            var createOrder = new Orders();
+            return createOrder.CreateOrder(Constants.URI);
         }
     }
 }
