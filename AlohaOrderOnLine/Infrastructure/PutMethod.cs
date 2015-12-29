@@ -9,49 +9,7 @@ namespace AlohaOrderOnLine.Infrastructure
     {
         static public string PutRequest(string uri, string json )
         {
-            json = "{  " +
-                   "  \"Customer\":{  " +
-                   "     \"CustomerId\": \"{998e8e40-433a-4be0-bcc3-c65ba58a576b}\"," +
-                   "     \"Email\":\"rolando.starpms76@hotmail.com\", " +
-                   "     \"FirstName\":\"Emiliano\", " +
-                   "     \"LastName\":\"Gomez\", " +
-                   "     \"BusinessName\":\"SHS-\", " +
-                   "     \"VoicePhone\":\"19286285\", " +
-                   "     \"VoicePhoneExtension\":\"123\", " +
-                   "     \"DepartmentName\":\"Desarrollo\", " +
-                   "     \"AltPhone\":\"29286285\", " +
-                   "     \"AltPhoneExtension\":\"123\", " +
-                   "     \"FavoriteSiteId\":2, " +
-                   "     \"LoyaltyCardNumber\":\"sample\", " +
-                   "     \"SecondaryEmailAddress\":\"rolando.starpms@hotmail.com\", " +
-                   "     \"Addresses\":[{" +
-                   
-                   " \"AddressId\": 0, " +
-        "\"AddressType\": \"\", " +
-        "\"IsDefault\": false, " +
-        "\"Description\": \"\", " +
-        "\"DepartmentName\": \"\", " +
-        "\"AddressLine1\": \"\", " +
-        "\"AddressLine2\": \"\", " +
-        "\"City\": \"\", " +
-        "\"State\": \"LAX\", " +
-        "\"Postal\": \"54172\" " +
-        //"\"ExtraData\": [ " +
-        //"  { " +
-        //"    \"Key\": \"\", " +
-        //"    \"Value\": \"\" " +
-        //"  } " +
-        //"] " +
-
-                   "}], " +
-                   //"     \"Birthday\":null, " +
-                   //"     \"LoyaltyZipCode\":null, " +
-                   "     \"FacebookId\":0 " +
-                   "  }, " +
-                   "  \"Password\":\"pwd123456789\", " +
-                   "  \"SecurityQuestion\":\"sec quest\", " +
-                   "  \"SecurityAnswer\":\"sec answ\" }";
-
+            
             var client = new HttpClient();
             client.DefaultRequestHeaders
             .Accept
