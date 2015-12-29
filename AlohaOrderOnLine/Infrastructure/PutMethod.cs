@@ -35,7 +35,7 @@ namespace AlohaOrderOnLine.Infrastructure
         "\"AddressLine2\": \"\", " +
         "\"City\": \"\", " +
         "\"State\": \"LAX\", " +
-        "\"Postal\": \"54172\", " +
+        "\"Postal\": \"54172\" " +
         //"\"ExtraData\": [ " +
         //"  { " +
         //"    \"Key\": \"\", " +
