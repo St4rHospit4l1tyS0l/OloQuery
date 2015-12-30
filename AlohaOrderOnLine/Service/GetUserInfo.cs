@@ -8,9 +8,9 @@ namespace AlohaOrderOnLine.Service
     {
         public string GetCustomerInfo(string uri, string customerId)
         {
-            customerId = customerId.Replace("\"", "");
+            
             //var customerInfoJsonData = CreateJson(customerId);
-            Console.WriteLine(string.Format("{0} " ,uri + "v1/Customers/" + customerId + ""));
+            Console.WriteLine(string.Format("{0} " ,uri + "Customers/" + customerId + ""));
             return GetMethod.GetRequest(uri + "Customers/" + customerId + "");
         }
 

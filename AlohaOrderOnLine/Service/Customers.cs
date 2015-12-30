@@ -16,10 +16,10 @@ namespace AlohaOrderOnLine.Service
             string json = "{  " +
                    "  \"Customer\":{  " +
                    "     \"CustomerId\": \"{998e8e40-433a-4be0-bcc3-c65ba58a576b}\"," +
-                   "     \"Email\":\"rolando.starpms76@hotmail.com\", " +
+                   "     \"Email\":\"emiliano.gomez.rivera@gmail.com\", " +
                    "     \"FirstName\":\"Emiliano\", " +
                    "     \"LastName\":\"Gomez\", " +
-                   "     \"BusinessName\":\"SHS-\", " +
+                   "     \"BusinessName\":\"SHS-123\", " +
                    "     \"VoicePhone\":\"19286285\", " +
                    "     \"VoicePhoneExtension\":\"123\", " +
                    "     \"DepartmentName\":\"Desarrollo\", " +
@@ -27,7 +27,7 @@ namespace AlohaOrderOnLine.Service
                    "     \"AltPhoneExtension\":\"123\", " +
                    "     \"FavoriteSiteId\":2, " +
                    "     \"LoyaltyCardNumber\":\"sample\", " +
-                   "     \"SecondaryEmailAddress\":\"rolando.starpms@hotmail.com\", " +
+                   "     \"SecondaryEmailAddress\":\"emiliano.starpms@hotmail.com\", " +
                    "     \"Addresses\":[{" +
 
                    " \"AddressId\": 0, " +
@@ -58,7 +58,7 @@ namespace AlohaOrderOnLine.Service
 
 
             //json = "{\"Customer\":{\"CustomerId\":{},\"Email\":\"rolando.starpms@hotmail.com\",\"FirstName\":\"Emiliano\",\"LastName\":\"Gomez\",\"BusinessName\":\"SHS-\",\"VoicePhone\":\"19286285\",\"VoicePhoneExtension\":\"123\",\"DepartmentName\":\"Desarrollo\",\"AltPhone\":\"29286285\",\"AltPhoneExtension\":\"123\",\"FavoriteSiteId\":2,\"LoyaltyCardNumber\":\"sample\",\"SecondaryEmailAddress\":\"sample\",\"Addresses\":[]},\"Password\":\"1234567890\",\"SecurityQuestion\":\"23456789\",\"SecurityAnswer\":\"asdfasdf\"}";
-            return PutMethod.PutRequest(uri + "Customers/", json);
+            return PutMethod.PutRequest(uri + "Customers?verbose=True", json);
         }
 
         private object CreateJson()

@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Infrastructure\Constants.cs" />
     <Compile Include="Infrastructure\GetMethod.cs" />
+    <Compile Include="Service\Menus.cs" />
     <Compile Include="Model\ComboItemModel.cs" />
     <Compile Include="Model\HoursModel.cs" />
     <Compile Include="Model\InOrderModel.cs" />

@@ -10,13 +10,21 @@ namespace AlohaOrderOnLine
         
         static void Main()
         {
-            //string userGuid = AuthenticateUser();
+            
+            //Console.WriteLine(AuthenticateUser());
             //Console.WriteLine(userGuid);
             //Console.WriteLine(GetCustomerInfo("1"));
-
             //Console.WriteLine(GetSiteInfo());
-            Console.WriteLine(CreateCustomer());
+            //Console.WriteLine(CreateCustomer());
+            //Console.WriteLine(GetMenu());
+            Console.WriteLine(CreateOrder());
             Console.ReadLine();
+        }
+
+        private static string GetMenu()
+        {
+            var menus = new Menus();
+            return menus.GetMenuInfo(Constants.URI,"1");
         }
 
         private static string GetSiteInfo()
@@ -28,13 +36,13 @@ namespace AlohaOrderOnLine
         private static string GetCustomerInfo(string userGuid)
         {
             var getUserInfo = new GetUserInfo();
-            return getUserInfo.GetCustomerInfo(Constants.URI, userGuid);
+            return getUserInfo.GetCustomerInfo(Constants.URI, Constants.USER_UID);
         }
 
         public static string AuthenticateUser()
         {
             var authenticateUser = new Authenticate();
-            return authenticateUser.AuthenticateUser(Constants.URI, "rolando.starpms@hotmail.com", "+2c;s^i#$TJTDR");
+            return authenticateUser.AuthenticateUser(Constants.URI, Constants.USER_NAME, Constants.USER_PWD);
                 // "sales@starpms.com", "=7Q7BYbZ0cwh5h");
         }
 
@@ -47,7 +55,7 @@ namespace AlohaOrderOnLine
         public static string CreateOrder()
         {
             var createOrder = new Orders();
-            return createOrder.CreateOrder(Constants.URI);
+            return createOrder.PutCreateOrder(Constants.URI, "1");
         }
     }
 }

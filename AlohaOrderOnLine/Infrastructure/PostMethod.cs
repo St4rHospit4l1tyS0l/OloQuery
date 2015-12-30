@@ -13,7 +13,7 @@ namespace AlohaOrderOnLine.Infrastructure
             client.DefaultRequestHeaders
             .Accept
             .Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            client.DefaultRequestHeaders.Add("X-Api-CompanyCode", "PHSP001");
+            client.DefaultRequestHeaders.Add("X-Api-CompanyCode", Constants.COMPANY_CODE);
 
             //client.DefaultRequestHeaders.Add("Authorization", "Basic YXBpQGFvbC5uY3IuY29tOnBhc3N3b3Jk");
             HttpContent content = new StringContent(
