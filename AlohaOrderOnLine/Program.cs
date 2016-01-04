@@ -16,21 +16,21 @@ namespace AlohaOrderOnLine
             //Console.WriteLine(GetCustomerInfo("1"));
             //Console.WriteLine(GetSiteInfo());
             //Console.WriteLine(CreateCustomer());
-            //Console.WriteLine(GetMenu());
-            Console.WriteLine(CreateOrder());
+            Console.WriteLine(GetMenu());
+            //Console.WriteLine(CreateOrder());
             Console.ReadLine();
         }
 
         private static string GetMenu()
         {
             var menus = new Menus();
-            return menus.GetMenuInfo(Constants.URI,"1");
+            return menus.GetMenuInfo(Constants.URI,"2");
         }
 
         private static string GetSiteInfo()
         {
             var sites = new Sites();
-            return sites.GetSitesInfo(Constants.URI,"1");
+            return sites.GetSitesInfo(Constants.URI,"2");
         }
 
         private static string GetCustomerInfo(string userGuid)
@@ -55,7 +55,7 @@ namespace AlohaOrderOnLine
         public static string CreateOrder()
         {
             var createOrder = new Orders();
-            return createOrder.PutCreateOrder(Constants.URI, "1");
+            return createOrder.PutCreateOrder(Constants.URI, "2");
         }
     }
 }
