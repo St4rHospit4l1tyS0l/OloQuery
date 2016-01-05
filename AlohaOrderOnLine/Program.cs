@@ -16,8 +16,8 @@ namespace AlohaOrderOnLine
             //Console.WriteLine(GetCustomerInfo("1"));
             //Console.WriteLine(GetSiteInfo());
             //Console.WriteLine(CreateCustomer());
-            Console.WriteLine(GetMenu());
-            //Console.WriteLine(CreateOrder());
+            //Console.WriteLine(GetMenu());
+            Console.WriteLine(CreateOrder());
             Console.ReadLine();
         }
 
